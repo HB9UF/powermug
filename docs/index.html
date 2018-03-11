@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<title>POWERMUG — A mug for RF engineers</title>
+</head>
+
+<body>
+<div id="title"></div>
+<div id="body">
+<h1>Introduction</h1>
+This page provides an overview of the POWERMUG and shows how to use it. The
+project is licensed under the CC BY-SA 4.0 license; the Latex source files can
+be retrieved from the <a href="https://github.com/HB9UF/powermug">github
+project page</a>. Only the sources files are available online, you have to
+generate the output yourself by running the source through latex. Please
+respect the license when doing so. The POWERMUG consists of three sections that
+are discussed below. An explanation in German was posted <a href="http://funkperlen.blogspot.ch/2017/11/die-hochfrequenztasse.html">here</a>.
+
+<img class="center" alt="Picture of mugs" src="mugs.jpg">
+
+<h1>Top section: dBm, Watts and Volts conversion</h1>
+The first section allows you to quickly convert between dBm, Watts and Volts.
+It spans the range from -100&nbsp; to +0&nbsp;dBm. For example, to get the power
+in W of a +13&nbsp;dBm signal, you look up the intersection of the vertical line at
+13&nbsp;dBm with the W scale to find that 13&nbsp;dBm correspond to 20&nbsp;mW:
+
+<img class="center" alt="Conversion of 13 dBm" src="first_part.png">
+
+Using the same method, you find that the 13&nbsp;dBm signal has 1&nbsp;Vrms in a
+50&nbsp;Ω system. Of course, you can use the same nomogram to convert from W to
+dBm, from V to W etc.
+
+<h1>Middle section: SWR, return loss and reflected power conversion</h1>
+The table in the second section is used to convert between standing wave ratio
+(SWR), return loss (RL) and the percentage of reflected power. For example, a
+perfect match yields a standing wave ratio of 1, no reflected power and therefore
+a return loss of -∞. Similarly, a 75&nbsp;Ω load in a (lossless) 50&nbsp;Ω
+system yields a SWR of 75/50=1.5, reflecting 4&nbsp;% of the incident power which
+corresponds to a return loss of -14&nbsp;dB. Note that the reflected power is
+not the reflection coefficient Γ, which would be 0.2 in this example.
+
+<img class="center" alt="SWR conversion table" src="second_part.png">
+
+<h1>Bottom section: Gain, power- and voltage-ratios</h1>
+With the nomogram in the third section, you can convert between gain
+(attenuation for negative values) in decibels and power- or voltage-ratios.
+For example, a gain of +20&nbsp;dB corresponds to a power-ratio of 100
+(10<sup>2</sup>) and to a voltage-ratio of 10 (10<sup>1</sup>).
+
+
+
+
+</body></html>
