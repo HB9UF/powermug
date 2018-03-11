@@ -1,0 +1,204 @@
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\usepackage[letterspace=50]{microtype}
+\usepackage{amsmath}
+\def\f(#1,#2){#1+log10(#2)}
+\def\g(#1,#2){#1+#2/10}
+\def\h(#1,#2){#1+#2}
+\def\v(#1,#2){#1+2*log10(#2)}
+\renewcommand{\familydefault}{\sfdefault}
+\begin{document}
+\begin{tikzpicture}
+\begin{scope}[xscale=1.2667]
+\draw (0,0) -- (15,0);
+\foreach \n in {0,...,14}{%
+	\draw[line width=0.1mm] ({\f(\n,1)},0) -- ({\f(\n,1)},0.35);
+	\foreach \i in {1,...,9}{
+		\draw[line width=0.1mm] ({\g(\n,\i)},0) -- ({\g(\n,\i)},0.25);}}
+	\draw[line width=0.1mm] ({\f(15,1)},0) -- ({\f(15,1)},0.35);
+	\node[above,anchor=base] at (0,0.40) {\tiny{-100}};
+	\node[above,anchor=base] at (1,0.40) {\tiny{-90}};
+	\node[above,anchor=base] at (2,0.40) {\tiny{-80}};
+	\node[above,anchor=base] at (3,0.40) {\tiny{-70}};
+	\node[above,anchor=base] at (4,0.40) {\tiny{-60}};
+	\node[above,anchor=base] at (5,0.40) {\tiny{-50}};
+	\node[above,anchor=base] at (6,0.40) {\tiny{-40}};
+	\node[above,anchor=base] at (7,0.40) {\tiny{-30}};
+	\node[above,anchor=base] at (8,0.40) {\tiny{-20}};
+	\node[above,anchor=base] at (9,0.40) {\tiny{-10}};
+	\node[above,anchor=base] at (10,0.40) {\tiny{0}};
+	\node[above,anchor=base] at (11,0.40) {\tiny{10}};
+	\node[above,anchor=base] at (12,0.40) {\tiny{20}};
+	\node[above,anchor=base] at (13,0.40) {\tiny{30}};
+	\node[above,anchor=base] at (14,0.40) {\tiny{40}};
+	\node[above,anchor=base] at (15,0.40) {\tiny{50}};
+	\node[right] at (15,0.25) {~\scriptsize{dBm}};
+\end{scope}
+\begin{scope}[yshift=-1cm,xscale=1.2667]
+    \draw (0,0) -- (15,0);
+    \foreach \n in {0,...,14}{%
+	\draw[line width=0.1mm] ({\f(\n,1)},0) -- ({\f(\n,1)},0.35);
+        \foreach \i in {2,...,9}{
+            \draw[line width=0.1mm] ({\f(\n,\i)},0) -- ({\f(\n,\i)},0.25);}}
+	\draw[line width=0.1mm] ({\f(15,1)},0) -- ({\f(15,1)},0.35);
+	\node[above,anchor=base] at (0,0.40) {\tiny{100 f}};
+	\node[above,anchor=base] at (1,0.40) {\tiny{1 p}};
+	\node[above,anchor=base] at (2,0.40) {\tiny{10 p}};
+	\node[above,anchor=base] at (3,0.40) {\tiny{100 p}};
+	\node[above,anchor=base] at (4,0.40) {\tiny{1 n}};
+	\node[above,anchor=base] at (5,0.40) {\tiny{10 n}};
+	\node[above,anchor=base] at (6,0.40) {\tiny{100 n}};
+	\node[above,anchor=base] at (7,0.40) {\tiny{1 $\mu$}};
+	\node[above,anchor=base] at (8,0.40) {\tiny{10 $\mu$}};
+	\node[above,anchor=base] at (9,0.40) {\tiny{100 $\mu$}};
+	\node[above,anchor=base] at (10,0.40) {\tiny{1 m}};
+	\node[above,anchor=base] at (11,0.40) {\tiny{10 m}};
+	\node[above,anchor=base] at (12,0.40) {\tiny{100 m}};
+	\node[above,anchor=base] at (13,0.40) {\tiny{1}};
+	\node[above,anchor=base] at (14,0.40) {\tiny{10}};
+	\node[above,anchor=base] at (15,0.40) {\tiny{100}};
+	\node[right] at (15,0.25) {~\scriptsize{W}};
+\end{scope}
+\begin{scope}[yshift=-2cm,xscale=1.2667]
+    \draw (0,0) -- (15,0);
+	% [round(log10(1000*(10**i)**2/50)+10,3) for i in (-5,-4,-3,-2,-1,0,1)]
+    \foreach \n in {1.301, 3.301, 5.301, 7.301, 9.301, 11.301}{%
+		\draw[line width=0.1mm] (\n,0) -- (\n,0.35);
+		\foreach \i in {0.602, 0.954, 1.204, 1.398, 1.556, 1.690, 1.806, 1.909}{%
+			\draw[line width=0.1mm] ({\h(\n,\i)},0) -- ({\h(\n,\i)},0.25);}}
+	\draw[line width=0.1mm] (13.301,0) -- (13.301,0.35);
+	\foreach \i in {0.602, 0.954, 1.204, 1.398, 1.556, 1.690}{%
+			\draw[line width=0.1mm] ({\h(13.301,\i)},0) -- ({\h(13.301,\i)},0.25);}
+	\foreach \i in {0.954, 1.204, 1.398, 1.556, 1.690, 1.806, 1.909}{%
+			\draw[line width=0.1mm] ({\h(-0.699,\i)},0) -- ({\h(-0.699,\i)},0.25);}
+
+	\node[above,anchor=base] at (1.301,0.40) {\tiny{10 $\mu$}};
+	\node[above,anchor=base] at (3.301,0.40) {\tiny{100 $\mu$}};
+	\node[above,anchor=base] at (5.301,0.40) {\tiny{1 m}};
+	\node[above,anchor=base] at (7.301,0.40) {\tiny{10 m}};
+	\node[above,anchor=base] at (9.301,0.40) {\tiny{100 m}};
+	\node[above,anchor=base] at (11.301,0.40) {\tiny{1}};
+	\node[above,anchor=base] at (13.301,0.40) {\tiny{10}};
+
+	\node[right] at (15,0.25) {~\scriptsize{V}};
+\end{scope}
+
+\begin{scope}[yshift=-2.55cm]
+%\fill[fill=blue!50] (0,-0.1) rectangle (19,0.1);
+%\foreach \i in {2,5,8,11,14,17}{%
+%\node[color=white] at (\i,0) {\tiny{\textbf{HB9UF}}};
+%}
+\fill[fill=blue!50] (0,-0.1) rectangle (2.5,0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*0},-0.1) rectangle ({3.4+ 0.2*1},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*2},-0.1) rectangle ({3.4+ 0.2*3},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*4},-0.1) rectangle ({3.4+ 0.2*5},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*6},-0.1) rectangle ({3.4+ 0.2*7},0.1);
+
+\fill[fill=blue!50] ({3.4+ 0.2*10},-0.1) rectangle ({3.4+ 0.2*13},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*14},-0.1) rectangle ({3.4+ 0.2*15},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*16},-0.1) rectangle ({3.4+ 0.2*17},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*18},-0.1) rectangle ({3.4+ 0.2*19},0.1);
+
+\fill[fill=blue!50] ({3.4+ 0.2*22},-0.1) rectangle ({3.4+ 0.2*25},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*26},-0.1) rectangle ({3.4+ 0.2*29},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*30},-0.1) rectangle ({3.4+ 0.2*33},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*34},-0.1) rectangle ({3.4+ 0.2*37},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*38},-0.1) rectangle ({3.4+ 0.2*39},0.1);
+
+\fill[fill=blue!50] ({3.4+ 0.2*42},-0.1) rectangle ({3.4+ 0.2*43},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*44},-0.1) rectangle ({3.4+ 0.2*45},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*46},-0.1) rectangle ({3.4+ 0.2*49},0.1);
+
+\fill[fill=blue!50] ({3.4+ 0.2*52},-0.1) rectangle ({3.4+ 0.2*53},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*54},-0.1) rectangle ({3.4+ 0.2*55},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*56},-0.1) rectangle ({3.4+ 0.2*59},0.1);
+\fill[fill=blue!50] ({3.4+ 0.2*60},-0.1) rectangle ({3.4+ 0.2*61},0.1);
+
+\fill[fill=blue!50] (16.5,-0.1) rectangle (19,0.1);
+
+
+\end{scope}
+\begin{scope}[yshift=-3.4cm]
+    \draw (0,0) -- (19,0);
+    \draw (0,+0.3) -- (19,+0.3);
+    \draw (0,-0.3) -- (19,-0.3);
+    \draw (0,-0.6) -- (19,-0.6);
+    \foreach \n / \s / \d / \r in {0.0 / 1.0 / -$\infty$ / 0.0, 0.76 / 1.1 / -26.44 / 0.2, 1.52 / 1.2 / -20.83 / 0.8, 2.28 / 1.3 / -17.69 / 1.7, 3.04 / 1.4 / -15.56 / 2.8, 3.8 / 1.5 / -13.98 / 4.0, 4.56 / 1.6 / -12.74 / 5.3, 5.32 / 1.7 / -11.73 / 6.7, 6.08 / 1.8 / -10.88 / 8.2, 6.84 / 1.9 / -10.16 / 9.6, 7.6 / 2.0 / -9.54 / 11.1, 8.36 / 2.2 / -8.52 / 14.1, 9.12 / 2.4 / -7.71 / 17.0, 9.88 / 2.6 / -7.04 / 19.8, 10.64 / 2.8 / -6.49 / 22.4, 11.4 / 3 / -6.02 / 25.0, 12.16 / 4 / -4.44 / 36.0, 12.92 / 5 / -3.52 / 44.4, 13.68 / 6 / -2.92 / 51.0, 14.44 / 7 / -2.5 / 56.3, 15.2 / 8 / -2.18 / 60.5, 15.96 / 9 / -1.94 / 64.0, 16.72 / 10 / -1.74 / 66.9, 17.48 / 20 / -0.87 / 81.9, 18.24 / 50 / -0.35 / 92.3}{%
+		\draw (\n,-0.6) -- (\n,0.3);
+		\node[anchor=center] at ({\n+0.65/2},0.15) {\textls{\tiny{\s}}};
+		\node[anchor=center] at ({\n+0.65/2},-0.15) {\textls{\tiny{\d}}};
+		\node[anchor=center] at ({\n+0.65/2},-0.45) {\textls{\tiny{\r}}};}
+	\draw (19,-0.6) -- (19,0.3);
+
+	\node[right] at (19,0.15) {~\scriptsize{SWR}};
+	\node[right] at (19,-0.15) {~\scriptsize{RL dB}};
+	\node[right] at (19,-0.45) {~\scriptsize{P$_\text{refl}$~\%}};
+\end{scope}
+\begin{scope}[yshift=-4.5cm]
+\fill[fill=blue!50] (0,-0.1) rectangle (1.5,0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*0},-0.1) rectangle ({2.4+ 0.2*1},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*2},-0.1) rectangle ({2.4+ 0.2*3},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*4},-0.1) rectangle ({2.4+ 0.2*5},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*6},-0.1) rectangle ({2.4+ 0.2*7},0.1);
+
+\fill[fill=blue!50] ({2.4+ 0.2*10},-0.1) rectangle ({2.4+ 0.2*13},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*14},-0.1) rectangle ({2.4+ 0.2*15},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*16},-0.1) rectangle ({2.4+ 0.2*17},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*18},-0.1) rectangle ({2.4+ 0.2*19},0.1);
+
+\fill[fill=blue!50] ({2.4+ 0.2*22},-0.1) rectangle ({2.4+ 0.2*25},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*26},-0.1) rectangle ({2.4+ 0.2*29},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*30},-0.1) rectangle ({2.4+ 0.2*33},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*34},-0.1) rectangle ({2.4+ 0.2*37},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*38},-0.1) rectangle ({2.4+ 0.2*39},0.1);
+
+\fill[fill=blue!50] ({2.4+ 0.2*42},-0.1) rectangle ({2.4+ 0.2*43},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*44},-0.1) rectangle ({2.4+ 0.2*45},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*46},-0.1) rectangle ({2.4+ 0.2*49},0.1);
+
+\fill[fill=blue!50] ({2.4+ 0.2*52},-0.1) rectangle ({2.4+ 0.2*53},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*54},-0.1) rectangle ({2.4+ 0.2*55},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*56},-0.1) rectangle ({2.4+ 0.2*57},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*58},-0.1) rectangle ({2.4+ 0.2*59},0.1);
+
+\fill[fill=blue!50] ({2.4+ 0.2*62},-0.1) rectangle ({2.4+ 0.2*63},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*64},-0.1) rectangle ({2.4+ 0.2*65},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*66},-0.1) rectangle ({2.4+ 0.2*69},0.1);
+\fill[fill=blue!50] ({2.4+ 0.2*70},-0.1) rectangle ({2.4+ 0.2*71},0.1);
+
+\fill[fill=blue!50] (17.5,-0.1) rectangle (19,0.1);
+
+\end{scope}
+\begin{scope}[yshift=-5.5cm,xscale=1.9]
+    \draw (0,0) -- (10,0);
+    \draw (0,-0.9) -- (10,-0.9);
+    \foreach \n in {0,...,9}{%
+		\draw[line width=0.1mm] ({\f(\n,1)},-0.35) -- ({\f(\n,1)},0.35);
+		\draw[line width=0.1mm] ({\f(\n,1)},-0.9) -- ({\f(\n,1)},-0.55);
+		\draw[line width=0.1mm] ({\g(\n,1)},0) -- ({\g(\n,1)},-0.25);
+		\draw[line width=0.1mm] ({\g(\n,1)},-0.65) -- ({\g(\n,1)},-0.9);
+        \foreach \i in {2,...,9}{
+            \draw[line width=0.1mm] ({\f(\n,\i)},0) -- ({\f(\n,\i)},0.25);
+            \draw[line width=0.1mm] ({\g(\n,\i)},0) -- ({\g(\n,\i)},-0.25);
+            \draw[line width=0.1mm] ({\g(\n,\i)},-0.65) -- ({\g(\n,\i)},-0.9);}}
+    \foreach \n in {0,1,2,3,4}{%
+	\draw[line width=0.1mm] ({2*\f(\n,1)},-1.25) -- ({2*\f(\n,1)},-0.55);
+        \foreach \i in {2,...,10}{
+            \draw[line width=0.1mm] ({\v(\n*2,\i)},-1.25) -- ({\v(\n*2,\i)},-0.9);}}
+	\foreach \i in {}{
+		\draw ({\v(9*2,\i)},-1.25) -- ({\v(9*2,\i)},-0.9);}
+	\draw[line width=0.1mm] ({\f(10,1)},-0.35) -- ({\f(10,1)},0.35);
+	\draw[line width=0.1mm] ({\f(10,1)},-0.9) -- ({\f(10,1)},-0.55);
+    \foreach \n in {0,...,10}{%
+		\node[above,anchor=base] at ({\n},0.40) {\tiny{$\mathsf{10^{\n}}$}};}
+    \foreach \n in {1,...,10}{%
+		\node at ({\n},-0.45) {\tiny{\n0}};}
+	\node at (0,-0.45) {\tiny{0}};
+    \foreach \n in {0,...,5}{%
+		\node at ({2*\n},-1.35) {\tiny{$\mathsf{10^{\n}}$}};}
+	\node[right] at (10,0.25) {~\scriptsize{$\frac{\mathsf{P_1}}{\mathsf{P_2}}$}};
+	\node[right] at (10,-0.425) {~\scriptsize{dB}};
+	\node[right] at (10,-1.15) {~\scriptsize{$\frac{\mathsf{U_1}}{\mathsf{U_2}}$}};
+\end{scope}
+%\node[xshift=-5mm,rotate=90,anchor=north east]{\tiny{\textcopyright~2018 Mathias Weyland (HB9FRV)}};
+\end{tikzpicture}
+\end{document}
